@@ -1,0 +1,41 @@
+{% include 'title.html' %}
+
+  <title>Вакансии | Джуманджи</title>
+
+    {% include 'head.html' %}
+
+</head>
+
+<body>
+
+{% include 'header.html' %}
+
+  <main class="container mt-3">
+    <section>
+      <div class="row mt-5">
+        <div class="col-12 col-lg-8 offset-lg-2 m-auto">
+            {% for vacancy in vacanсies %}
+          <div class="card mb-4">
+            <div class="card-body px-4">
+              <div class="row">
+                <div class="col-12 col-md-8 col-lg-9">
+                    <h2 class="h2 pb-2"><a href="{{ vacancy.id }}">{{ vacancy.title }}</a></h2>
+                  <p class="mb-2">{{ vacancy.skills }}</p>
+                  <p>От {{ vacancy.salary_min|floatformat:0 }} до {{ vacancy.salary_max|floatformat:0 }} руб.</p>
+                </div>
+                <div class="col-12 col-md-4 col-lg-3 d-flex align-items-end">
+                  <a href="#"><img src="https://place-hold.it/130x80" width="130" height="80" alt=""></a>
+                </div>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+        </div>
+      </div>
+    </section>
+  </main>
+
+{% include 'basement.html' %}
+
+</body>
+</html>
